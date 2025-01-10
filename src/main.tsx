@@ -1,45 +1,18 @@
-import { StrictMode, Suspense } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import Home from "./customComponents/Home/index.tsx";
-import { Provider as CharkaProvider } from "@/components/ui/provider";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Layout } from "./customComponents/Layout/index.tsx";
-import { ChoisePresent } from "./customComponents/ChoisePresrent/index.tsx";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: (
-          <Suspense fallback={<>Загрузка...</>}>
-            <Home />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/choisePresents",
-        element: (
-          <Suspense fallback={<>Загрузка...</>}>
-            <ChoisePresent />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-  {
-    path: "*",
-    element: <div>Ошибка</div>,
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import { router } from "@/app/routes";
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "@/app/store";
+import { Provider as ChakraProvider } from "@/shared/components/ui/provider";
+import "./app/styles/index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <CharkaProvider>
-      <RouterProvider router={router} />
-    </CharkaProvider>
+    <ReduxProvider store={store}>
+      <ChakraProvider>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </ReduxProvider>
   </StrictMode>
 );

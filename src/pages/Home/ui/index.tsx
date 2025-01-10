@@ -2,7 +2,7 @@ import { Flex, Text, Button, Icon, Stack } from "@chakra-ui/react";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+export const Home = () => {
   const navigate = useNavigate();
   return (
     <Flex direction="column" minHeight="93vh">
@@ -40,6 +40,4 @@ function Home() {
       </Button>
     </Flex>
   );
-}
-
-export default Home;
+};
