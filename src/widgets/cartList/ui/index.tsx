@@ -4,11 +4,11 @@ import { Flex, Text } from "@chakra-ui/react";
 import {
   ProgressCircleRing,
   ProgressCircleRoot,
-} from "@/components/ui/progress-circle";
+} from "@/shared/components/ui/progress-circle";
+// import { DATA } from "@/app/db";
 
 export const Cart = () => {
-  const { data = [], isError, isSuccess, isLoading } = useGetWishListQuery();
-
+  const { data = [], isError, isLoading } = useGetWishListQuery();
   return (
     <Flex justifyContent="center" gap="4" flexDirection="column">
       {isLoading && (
