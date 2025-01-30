@@ -10,6 +10,7 @@ interface IWishList {
   comments: IComments[];
   references_img: string[];
   links: string[];
+  warning?: boolean;
 }
 
 interface IComments {

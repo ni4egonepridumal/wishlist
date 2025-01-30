@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <Flex direction="column" minHeight="93vh">
       <Stack marginTop={"10%"} textAlign={"center"} fontSize={20}>
-        <Text>Я считаю, что подарок должне быть полезен.</Text>
+        <Text>Я считаю, что подарок должен быть полезен.</Text>
         <Text>И ставлю полезность подарка выше его "сюрпризности"</Text>
         <Text>
           Если ты находишься на этой странице, то скорее всего, мы с тобой
@@ -24,7 +24,7 @@ export const Home = () => {
         mx={4}
         mb={4}
         colorScheme="teal"
-        onClick={() => navigate("/choisePresents")}
+        onClick={() => navigate("/choicePresents")}
       >
         <Flex
           direction={"row"}

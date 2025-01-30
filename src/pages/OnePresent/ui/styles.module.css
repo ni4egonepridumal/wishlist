@@ -1,0 +1,15 @@
+.headerText {
+  border: 2px solid #a41752;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.warning {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

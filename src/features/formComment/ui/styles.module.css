@@ -1,0 +1,13 @@
+.formInner {
+   padding-bottom: 30px; 
+}
+.text {
+    margin-top: 20px;
+    font-weight: bold;
+}
+.buttonBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}

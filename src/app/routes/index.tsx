@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import { Layout } from "@/app/layout";
 import { Home } from "@/pages/Home";
-import { ChoisePresent } from "@/pages/ChoisePresent";
+import { ChoicePresent } from "@/pages/ChoicePresent";
 import { OnePresent } from "@/pages/OnePresent";
 
 export const router = createBrowserRouter([
@@ -19,10 +19,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/choisePresents",
+        path: "/choicePresents",
         element: (
           <Suspense fallback={<>Загрузка...</>}>
-            <ChoisePresent />
+            <ChoicePresent />
           </Suspense>
         ),
       },

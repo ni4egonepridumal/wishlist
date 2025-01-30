@@ -14,6 +14,7 @@ interface IWishList {
   comments: string[];
   references_img: string[];
   links: string[];
+  warning?: boolean;
 }
 
 export const CartItem = ({ data }: ICartItem) => {

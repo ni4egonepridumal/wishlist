@@ -1,6 +1,6 @@
 import { Cart } from "@/widgets";
 
-export const ChoisePresent = () => {
+export const ChoicePresent = () => {
   return (
     <div>
       <Cart />

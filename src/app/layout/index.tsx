@@ -1,8 +1,8 @@
 import { Box, Container, Flex, Icon, Text } from "@chakra-ui/react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { SlPresent } from "react-icons/sl";
-import { TbFilterFilled } from "react-icons/tb";
 import "../styles/index.css";
+import { Drawer } from "@/features/drawer/ui";
 
 export function Layout() {
   const navigate = useNavigate();
@@ -30,16 +30,7 @@ export function Layout() {
             <SlPresent />
           </Icon>
         </Flex>
-        {location.pathname === "/choisePresents" && (
-          <Icon
-            position={"absolute"}
-            top={"13px"}
-            right={"10px"}
-            color="pink.700"
-          >
-            <TbFilterFilled />
-          </Icon>
-        )}
+        {location.pathname === "/choicePresents" && <Drawer />}
       </Box>
 
       <Container px="1" paddingTop="50px">
