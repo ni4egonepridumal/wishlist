@@ -11,21 +11,35 @@ import {
 } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
+import { useSentNewCommentMutation } from "../model";
+import { IComments } from "@/shared/types/appTypes";
+import { useEffect } from "react";
 
-interface FormValues {
-  username: string;
-  bio: string;
+interface IProps {
+  comments: IComments[];
+  id: string;
+  setAddComment: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const FormForComment = () => {
+export const FormForComment = ({ comments, id, setAddComment }: IProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>();
+    reset,
+  } = useForm<IComments>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const [addNewComment, { isSuccess }] = useSentNewCommentMutation();
+  const onSubmit = handleSubmit((formData) => {
+    addNewComment({ comments, formData, id });
+    reset();
+  });
   const navigate = useNavigate();
+  useEffect(() => {
+    if (isSuccess) {
+      setAddComment(true);
+    }
+  }, [isSuccess, setAddComment]);
   return (
     <Box className={styles.formInner}>
       <Text className={styles.text}>Тут можешь оставить свой:</Text>
@@ -38,25 +52,25 @@ export const FormForComment = () => {
         <Stack gap="4" align="flex-start" maxW="sm">
           <Field
             label="Имя"
-            invalid={!!errors.username}
-            errorText={errors.username?.message}
+            invalid={!!errors.name}
+            errorText={errors.name?.message}
           >
             <Input
               placeholder="Василий"
               border="2px solid #a41752"
-              {...register("username", { required: "Имя обязательно" })}
+              {...register("name", { required: "Имя обязательно" })}
             />
           </Field>
           <Field
             label="Комментарий"
-            invalid={!!errors.bio}
+            invalid={!!errors.comment}
             helperText="Можете оставить тут свои контакты или что хотите..."
-            errorText={errors.bio?.message}
+            errorText={errors.comment?.message}
           >
             <Textarea
               placeholder="А ты скажи, вот тут ..."
               border="2px solid #a41752"
-              {...register("bio", { required: "Напишите хоть что то" })}
+              {...register("comment", { required: "Напишите хоть что то" })}
             />
           </Field>
           <Box className={styles.buttonBlock}>

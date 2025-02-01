@@ -12,8 +12,8 @@ export const SimpleSlider = ({ images }: { images: string[] }) => {
   };
   return (
     <Slider {...settings} style={{ maxWidth: "320px", margin: "0 auto" }}>
-      {images.map((item) => (
-        <div >
+      {images?.map((item, index) => (
+        <div key={index}>
           <img src={item} style={{ borderRadius: "12px" }} />
         </div>
       ))}

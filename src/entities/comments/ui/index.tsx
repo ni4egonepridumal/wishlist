@@ -1,16 +1,12 @@
 import { Blockquote } from "@/shared/components/ui/blockquote";
 import { Box, Separator, Text } from "@chakra-ui/react";
 import styles from "./styles.module.css";
-
-interface IComments {
-  name: string;
-  comment: string;
-}
+import { IComments } from "@/shared/types/appTypes";
 
 export const Comment = ({
   comments,
 }: {
-  comments: IComments[] | undefined;
+  comments: IComments[];
 }) => {
   return (
     <Box>

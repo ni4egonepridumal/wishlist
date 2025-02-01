@@ -1,4 +1,4 @@
-import { Box, Collapsible } from "@chakra-ui/react";
+import { Box, Collapsible, Link } from "@chakra-ui/react";
 
 export const CollapsibleBasic = () => (
   <Collapsible.Root>
@@ -10,7 +10,7 @@ export const CollapsibleBasic = () => (
         borderRadius="12px"
         marginBottom="10px"
       >
-        tg: ссылка почта: apc-mv@yandex.ru
+        tg: <Link href="https://t.me/ni4egonepridumal" target="_blank">Ссылка;</Link> почта: apc-mv@yandex.ru
       </Box>
     </Collapsible.Content>
   </Collapsible.Root>
